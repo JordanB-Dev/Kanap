@@ -1,4 +1,4 @@
-const dataProduct = document.getElementById("items");
+const productData = document.getElementById("items");
 const errorApi = document.querySelector(".titles");
 
 fetch("http://localhost:3000/api/products")
@@ -13,7 +13,7 @@ fetch("http://localhost:3000/api/products")
 
 const sofa = (index) => {
   for (let product of index) {
-    dataProduct.innerHTML += `
+    productData.innerHTML += `
     <a href="./product.html?_id=${product._id}">
     <article>
       <img src="${product.imageUrl}" alt="${product.altTxt}">
