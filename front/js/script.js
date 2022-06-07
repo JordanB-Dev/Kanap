@@ -1,26 +1,27 @@
 const productData = document.getElementById("items");
 const errorApi = document.querySelector(".titles");
 
-fetch("http://localhost:3000/api/products")
+fetch("http://localhost:3000/api/products", { method: "GET" })
   .then((res) => res.json())
   .then((obj) => {
     sofa(obj);
   })
   .catch((error) => {
-    errorApi.innerHTML = "<h1>404 NOT FOUND</h1>";
+    errorApi.insertAdjacentHTML("beforeend", `<h1>404 NOT FOUND</h1>`);
     console.log("Error api:" + " " + error);
   });
 
 const sofa = (index) => {
   for (let product of index) {
-    productData.innerHTML += `
-    <a href="./product.html?_id=${product._id}">
+    productData.insertAdjacentHTML(
+      "beforeend",
+      `<a href="./product.html?_id=${product._id}">
     <article>
       <img src="${product.imageUrl}" alt="${product.altTxt}">
       <h3 class="productName">${product.name}</h3>
       <p class="productDescription">${product.description}</p>
     </article>
-  </a>
-  `;
+  </a>`
+    );
   }
 };
