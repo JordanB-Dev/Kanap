@@ -1,6 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get("_id");
 const errorApi = document.querySelector(".item");
+console.log(id);
 
 const fetchProduct = async () => {
   await fetch(`http://localhost:3000/api/products/${id}`)
