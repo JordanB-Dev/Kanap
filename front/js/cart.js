@@ -86,7 +86,7 @@ const editQuantity = () => {
         ) {
           data.quantité = e.target.value;
           localStorage.basketStocked = JSON.stringify(editBasket);
-          cart.dataset.quantité = eq.target.value;
+          cart.dataset.quantité = e.target.value;
           productTotal();
         }
     });
